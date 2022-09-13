@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { ChangeEventHandler, useState } from 'react';
 import './App.css';
+import { CurvedText } from './components/CurvedText';
+import { Slider } from './components/Slider';
+import Styles from './index.module.css';
 
 function App() {
+  const [value, setValue] = useState<number>(1);
+
+  const onChangeValue: ChangeEventHandler = (event) => {
+    const target = event.target as HTMLInputElement;
+
+    setValue(target.value as unknown as number);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Styles.App}>
+      <Slider
+        value={value}
+        onChange={onChangeValue}
+      ></Slider>
+      <CurvedText
+        text="가나다라마바사아자차카타파하나타파라나마나나"
+        className={Styles.CurvedText}
+        value={value}
+      ></CurvedText>
     </div>
   );
 }
