@@ -14,7 +14,7 @@ export const Slider = (props: PropsType) => {
                 top: '0'
             }}
             type="range"
-            min="1"
+            min="-100"
             max="100"
             value={props.value}
             onChange={props.onChange}

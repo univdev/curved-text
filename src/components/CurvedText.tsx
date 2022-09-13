@@ -34,10 +34,18 @@ export const CurvedText = (props: PropsType) => {
 
   useEffect(() => {
     const step = 180 / ((height.current / width.current) * 660);
-    const radius = width.current / (Math.PI * props.value * step) * 180;
+    const radius = width.current / (Math.PI * Math.abs(props.value) * step) * 180;
     const circle = new CircleType(target.current);
-    circle.forceWidth(true);
-    circle.radius(radius);
+
+    if (+props.value === 0) {
+      circle.destroy();
+    } else {
+      circle
+        .forceWidth(true)
+        .forceHeight(true)
+        .dir(props.value > 0 ? 1 : -1)
+        .radius(radius);
+    }
 
     return () => {
       circle.destroy();

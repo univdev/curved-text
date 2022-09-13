@@ -3046,6 +3046,12 @@ circletype@^2.3.0:
   dependencies:
     core-js "^2.5.6"
 
+"circletype@https://github.com/univdev/circle-type":
+  version "2.3.2"
+  resolved "https://github.com/univdev/circle-type#578faf6a2a9b7d4a3a47d4e2fcc4aeb5602be2a3"
+  dependencies:
+    core-js "^2.5.6"
+
 cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
